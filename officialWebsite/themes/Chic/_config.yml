@@ -4,9 +4,10 @@ navname: 白鲸字幕组官网
 # navigatior items
 nav:
   旗下账号: /accounts
-  成员名单: /members
-  关于我们: /about
-  加入我们: /join-us
+  成员: /members
+  关于: /about
+  加入: /join-us
+  商业合作: /business
 
 # favicon
 favicon: https://s2.loli.net/2024/01/17/CGeZhq1FYovxz2p.jpg
