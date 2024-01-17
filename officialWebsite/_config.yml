@@ -3,18 +3,18 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
-description: ''
-keywords:
-author: John Doe
-language: en
-timezone: ''
+title: 白鲸字幕组官网
+subtitle: Beluga Subs
+description: 白鲸字幕组(Beluga Subs)官方网站
+keywords: 白鲸字幕组, YouTube, BiliBili, 搬运, 英语, 日语, 字幕组, 字幕, 翻译, 翻译组, 翻译字幕, 翻译字幕组, 翻译字幕制作
+author: 白鲸字幕组
+language: zh-CN
+timezone: Asia/Shanghai
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
-permalink: :year/:month/:day/:title/
+url: https://www.belugasubs.com
+permalink: :year/:title/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
@@ -96,7 +96,54 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: Chic
+
+# 站点地图支持，优化SEO
+# https://github.com/hexojs/hexo-generator-sitemap
+sitemap:
+  path: 
+    - sitemap.xml
+    - sitemap.txt
+  # template: ./sitemap_template.xml
+  # template_txt: ./sitemap_template.txt
+  rel: false
+  tags: true
+  categories: true
+
+# feed RSS功能
+# Dependencies: https://github.com/hexojs/hexo-generator-feed
+feed:
+  enable: true
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+  content:
+  content_limit: 140
+  content_limit_delim: ' '
+  order_by: -date
+  icon: https://s2.loli.net/2024/01/17/CGeZhq1FYovxz2p.jpg
+  autodiscovery: true
+  template:
+
+# https://github.com/viko16/hexo-permalink-pinyin
+permalink_pinyin:
+  enable: true
+  separator: '-'           # Separator of the slug, default: '-'
+  exclude: /ignore_post/   # Regex for which post should skip
+
+# 减少出站链接防止权重分散
+nofollow:
+  enable: true
+  field: site
+  exclude:
+    - 'www.aifans.cc'
+    - 'www.pccstudio.com'
+    - 'www.fghrsh.net'
+    - 'www.kizunaai.fun'
+    - 'www.zl-asica.com'
+    - 'www.zla.pub'
+    - 'www.zla.app'
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
