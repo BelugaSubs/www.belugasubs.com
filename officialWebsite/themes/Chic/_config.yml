@@ -3,10 +3,10 @@ navname: 白鲸字幕组官网
 
 # navigatior items
 nav:
-  Posts: /archives
-  Categories: /category
-  Tags: /tag
-  About: /about
+  旗下账号: /accounts
+  成员名单: /members
+  关于我们: /about
+  加入我们: /join-us
 
 # favicon
 favicon: https://s2.loli.net/2024/01/17/CGeZhq1FYovxz2p.jpg
@@ -15,7 +15,7 @@ favicon: https://s2.loli.net/2024/01/17/CGeZhq1FYovxz2p.jpg
 nickname: 白鲸字幕组
 
 ### this variable is MarkDown form.
-description: 白鲸字幕组是一个非盈利性质的多语言字幕组。<br><br>我们旨在为身处中国大陆的粉丝们提供<br>对YouTube博主的优质字幕、精准翻译、光速搬运
+description: 白鲸字幕组是一个非盈利性质的多语言字幕组。<br><br>我们旨在为身处中国大陆的粉丝们提供<br>优质字幕、精准翻译、光速搬运
 avatar: https://s2.loli.net/2024/01/17/CGeZhq1FYovxz2p.jpg
 
 # main menu navigation
@@ -26,7 +26,7 @@ links:
   # Blog: /archives
   # Category:
   # Tags: 
-  # Link:
+  # Link: 
   # Resume:
   # Publish:
   # Trophy:
@@ -49,7 +49,7 @@ links:
   # QQ:
   Weibo: https://weibo.com/n/%E7%99%BD%E9%B2%B8%E5%AD%97%E5%B9%95%E7%BB%84
   # WeChat:
-  # Github: https://github.com/Siricee
+  # Github: 
 
 # how links show: you have 2 choice--text or icon.
 links_text_enable: false
@@ -68,14 +68,14 @@ post_copyright_enable: true
 post_copyright_author_enable: false
 post_copyright_permalink_enable: true
 post_copyright_license_enable: true
-post_copyright_license_text: Copyright (c) 2024 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE
-post_copyright_slogan_enable: true
+post_copyright_license_text: Copyright (c) 2019-<span id="copyright-current-year"></span> <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE
+post_copyright_slogan_enable: false
 post_copyright_slogan_text: Beluga Subs
 ## toc
 post_toc_enable: true
 
 # Page
-page_title_enable: true
+page_title_enable: false
 
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
