@@ -88,11 +88,14 @@ time_format: H:mm:ss
 # stylesheets loaded in the <head>
 stylesheets:
   - /css/style.css
+  - https://unpkg.com/leaflet@1.7.1/dist/leaflet.css # 引入 Leaflet 地图库的 CSS
 
 # scripts loaded in the end of the body
 scripts:
   - /js/script.js
   - /js/tocbot.min.js
+  - https://unpkg.com/leaflet@1.7.1/dist/leaflet.js # 引入 Leaflet 地图库的 JavaScript
+  - https://d3js.org/d3-dsv.v1.min.js # 引入 D3.js 库来解析 CSV 文件
   - /js/custom.js
     # tscanlin/tocbot: Build a table of contents from headings in an HTML document.
     # https://github.com/tscanlin/tocbot
