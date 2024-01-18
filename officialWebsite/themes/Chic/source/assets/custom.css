@@ -21,8 +21,8 @@
 #accounts-zhihu .case,
 #accounts-weibo .case,
 #accounts-wechat .case {
-    flex: 1 1 300px; /* 每个案例占据的最小宽度 */
-    max-width: 350px; /* 每个案例的最大宽度 */
+    flex: 1 1 150px; /* 每个案例占据的最小宽度 */
+    max-width: 200px; /* 每个案例的最大宽度 */
     text-align: center;
     border: 1px solid #ddd;
     border-radius: 10px;
@@ -38,8 +38,8 @@
 #accounts-zhihu .case img,
 #accounts-weibo .case img,
 #accounts-wechat .case img {
-    width: 100%;
-    height: 200px;
+    flex: 1 1 150px; /* 每个案例占据的最小宽度 */
+    width: 200px;
     object-fit: cover;
     border-bottom: 1px solid #ddd;
 }
@@ -58,4 +58,10 @@
 #special-link p {
     color: rgb(21, 21, 21);
     text-indent: 0;
+}
+
+img {
+    /* 默认的背景，作为加载前的占位符 */
+    background: #f4f4f4 url('https://s2.loli.net/2024/01/19/yiqRBeYSrlgnNAT.webp') no-repeat center center;
+    /* 当图片加载后，背景将被图片本身覆盖 */
 }

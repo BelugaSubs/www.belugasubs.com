@@ -1,0 +1,14 @@
+User-agent: *
+Disallow: /
+
+Allow: /join-us/
+Allow: /members/
+Allow: /about/
+Allow: /accounts/
+Allow: /business/
+Allow: /
+Allow: /sitemap.xml
+Allow: /sitemap.txt
+
+Sitemap: https://www.belugasubs.com/sitemap.xml
+Sitemap: https://www.belugasubs.com/sitemap.txt

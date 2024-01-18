@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', function () {
         var caseEl = document.createElement('div');
         caseEl.className = 'case';
         caseEl.innerHTML = `
-            <a id="special-link" href="${caseItem.url}" target="_blank">
-                <img src="${caseItem.imageUrl}" alt="${caseItem.name}">
+            <a id="special-link" href="${caseItem.url}" target="_blank" title="我们旗下的账号">
+                <img src="${caseItem.imageUrl}" alt="${caseItem.name}" loading="lazy">
                 <div class="case-info">
                     <h4>${caseItem.name}</h4>
                     <p>${caseItem.startDate}</p>

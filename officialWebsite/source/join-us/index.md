@@ -30,4 +30,4 @@ date: 2020-01-31 09:30:00
 
 <div style="color: #A9A9A9; margin-top: 1em; text-align: center;">请微信扫码关注我们的公众号，点击下方入组申请进行填表申请。</div>
 
-![微信公众号](https://s2.loli.net/2024/01/18/aA754CQERrTDd8M.jpg)
+<img src="https://s2.loli.net/2024/01/18/aA754CQERrTDd8M.jpg" alt="微信公众号" width="200" loading="lazy">

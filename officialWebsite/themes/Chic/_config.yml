@@ -10,7 +10,7 @@ nav:
   商业合作: /business
 
 # favicon
-favicon: https://s2.loli.net/2024/01/17/CGeZhq1FYovxz2p.jpg
+favicon: /favicon.ico
 
 # Profile
 nickname: 白鲸字幕组
@@ -24,7 +24,7 @@ avatar: https://s2.loli.net/2024/01/17/CGeZhq1FYovxz2p.jpg
 ## Complete url after key words.
 ## Unused key can be commented out.
 links:
-  # Blog: /archives
+  # Blog: 
   # Category:
   # Tags: 
   # Link: 
@@ -32,7 +32,7 @@ links:
   # Publish:
   # Trophy:
   # Gallery:
-  RSS: /atom.xml
+  # RSS: /atom.xml
   # AliPay:
   # ZhiHu:
   # LinkedIn:
@@ -48,7 +48,8 @@ links:
   # Reddit:
   # YouTube:
   # QQ:
-  Weibo: https://weibo.com/n/%E7%99%BD%E9%B2%B8%E5%AD%97%E5%B9%95%E7%BB%84
+  # Weibo: https://weibo.com/n/%E7%99%BD%E9%B2%B8%E5%AD%97%E5%B9%95%E7%BB%84
+  # Email: emailto:admin@belugasubs.com
   # WeChat:
   # Github: 
 

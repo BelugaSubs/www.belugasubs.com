@@ -14,7 +14,7 @@ timezone: Asia/Shanghai
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://www.belugasubs.com
-permalink: :year/:title/
+permalink: posts/:title/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
@@ -23,9 +23,9 @@ pretty_urls:
 # Directory
 source_dir: source
 public_dir: public
-tag_dir: tags
+# tag_dir: tags
 archive_dir: archives
-category_dir: categories
+# category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
@@ -98,39 +98,6 @@ ignore:
 ## Themes: https://hexo.io/themes/
 theme: Chic
 
-# 站点地图支持，优化SEO
-# https://github.com/hexojs/hexo-generator-sitemap
-sitemap:
-  path: 
-    - sitemap.xml
-    - sitemap.txt
-  # template: ./sitemap_template.xml
-  # template_txt: ./sitemap_template.txt
-  rel: false
-  tags: true
-  categories: true
-
-# feed RSS功能
-# Dependencies: https://github.com/hexojs/hexo-generator-feed
-feed:
-  enable: true
-  type: atom
-  path: atom.xml
-  limit: 20
-  hub:
-  content:
-  content_limit: 140
-  content_limit_delim: ' '
-  order_by: -date
-  icon: https://s2.loli.net/2024/01/17/CGeZhq1FYovxz2p.jpg
-  autodiscovery: true
-  template:
-
-# https://github.com/viko16/hexo-permalink-pinyin
-permalink_pinyin:
-  enable: true
-  separator: '-'           # Separator of the slug, default: '-'
-  exclude: /ignore_post/   # Regex for which post should skip
 
 # 减少出站链接防止权重分散
 nofollow:
@@ -139,11 +106,13 @@ nofollow:
   exclude:
     - 'www.aifans.cc'
     - 'www.pccstudio.com'
-    - 'www.fghrsh.net'
     - 'www.kizunaai.fun'
     - 'www.zl-asica.com'
     - 'www.zla.pub'
     - 'www.zla.app'
+    - 'zla.icu'
+
+# 站点地图非自动生成，注意手动更改sitemap.xml中的<lastmod>标签
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
