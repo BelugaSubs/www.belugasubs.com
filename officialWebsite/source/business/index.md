@@ -6,7 +6,9 @@ date: 2024-01-17 11:14:35
 
 <h3 style="color: #696969; text-align: center;">合作案例</h3>
 
-<p style="text-align: left;"></p>
+<div id="business-cases-example">
+        <!-- 案例将在这里动态生成 -->
+</div>
 
 <h3 style="color: #696969; text-align: center;">与我们合作</h3>
 

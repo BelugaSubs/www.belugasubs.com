@@ -1,0 +1,32 @@
+#business-cases-example {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+#business-cases-example .case {
+    flex: 1 1 300px; /* 每个案例占据的最小宽度 */
+    max-width: 350px; /* 每个案例的最大宽度 */
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#business-cases-example .case img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+}
+
+#business-cases-example .case-info {
+    padding: 15px;
+}
+
+#special-link p {
+    color: rgb(21, 21, 21);
+}

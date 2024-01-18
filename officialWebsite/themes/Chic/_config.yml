@@ -87,8 +87,9 @@ time_format: H:mm:ss
 
 # stylesheets loaded in the <head>
 stylesheets:
-  - /css/style.css
   - https://unpkg.com/leaflet@1.7.1/dist/leaflet.css # 引入 Leaflet 地图库的 CSS
+  - /css/style.css
+  - /assets/custom.css
 
 # scripts loaded in the end of the body
 scripts:
