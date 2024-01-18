@@ -14,12 +14,13 @@ document.addEventListener('DOMContentLoaded', function () {
         caseEl.innerHTML = `
             <a id="special-link" href="${caseItem.url}" target="_blank" title="我们旗下的账号">
                 <img src="${caseItem.imageUrl}" alt="${caseItem.name}" loading="lazy">
-                <div class="case-info">
-                    <h4>${caseItem.name}</h4>
-                    <p>${caseItem.startDate}</p>
-                    <p>${caseItem.description}</p>
-                </div>
             </a>
+            <div class="case-info">
+                <h4>${caseItem.name}</h4>
+                <p>${caseItem.startDate}</p>
+                <p>${caseItem.description}</p>
+            </div>
+            
         `;
         container.appendChild(caseEl);
     });

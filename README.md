@@ -20,6 +20,12 @@ Beluga Subtitle Groups Offcial Website. 白鲸字幕组官方网站
 
 ## 4. Upate logs
 
+### [2.1.0] - 2024-01-18
+- Update	新增icp.gov.moe备案号
+- Fix       members地图无法自适应。
+- Fix		img标签laze load占位符出现在不该在的地方，限制了只会给账号和合作伙伴占位。
+- Fix		修复部分SEO优化，如简介中的换行符。
+
 ### [2.0.0] - 2024-01-16
 
 - Update	重构项目，重新使用最新版的`hexo 7.0.0`和最新版本的`Chic 4.2.2`重构了整个项目。

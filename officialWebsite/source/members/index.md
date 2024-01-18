@@ -22,4 +22,4 @@ custom_js: /assets/members.js
 
 下面是我们成员在全球的分布。
 
-<div id="membersMap" style="width: 100%;height: 400px"></div> <!-- 地图容器 -->
+<div id="membersMap"></div> <!-- 地图容器 -->

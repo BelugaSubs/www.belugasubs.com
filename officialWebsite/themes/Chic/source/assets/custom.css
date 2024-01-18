@@ -42,6 +42,9 @@
     width: 200px;
     object-fit: cover;
     border-bottom: 1px solid #ddd;
+    /* 默认的背景，作为加载前的占位符 */
+    background: #f4f4f4 url('https://s2.loli.net/2024/01/19/yiqRBeYSrlgnNAT.webp') no-repeat center center;
+    /* 当图片加载后，背景将被图片本身覆盖 */
 }
 
 #business-cases-example .case-info,
@@ -60,8 +63,12 @@
     text-indent: 0;
 }
 
-img {
-    /* 默认的背景，作为加载前的占位符 */
-    background: #f4f4f4 url('https://s2.loli.net/2024/01/19/yiqRBeYSrlgnNAT.webp') no-repeat center center;
-    /* 当图片加载后，背景将被图片本身覆盖 */
+#membersMap {
+    display: flex;         /* 使用 Flexbox 布局 */
+    justify-content: center; /* 水平居中 */
+    align-items: center;    /* 垂直居中 */
+    flex: 1 1 auto;         /* 宽度自适应，但保持至少200px */
+    max-width: 1200px;      /* 最大宽度设置为1500px */
+    height: 500px;          /* 高度保持不变 */
+    margin: auto;           /* 边距自动调整以保持居中 */
 }

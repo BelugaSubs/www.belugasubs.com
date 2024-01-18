@@ -47,12 +47,12 @@ function renderAccounts(containerId, accounts) {
         accountEl.innerHTML = `
             <a href="${account.url}" target="_blank" id="special-link" title="我们旗下的账号">
                 <img src="${account.imageUrl}" alt="${account.name}" loading="lazy">
-                <div class="case-info">
-                    <h4>${account.name}</h4>
-                    <p>${account.startDate}</p>
-                    <p>${account.description}</p>
-                </div>
             </a>
+            <div class="case-info">
+                <h4>${account.name}</h4>
+                <p>${account.startDate}</p>
+                <p>${account.description}</p>
+            </div>
         `;
         container.appendChild(accountEl);
     });
