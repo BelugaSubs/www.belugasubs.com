@@ -1,6 +1,7 @@
 ---
 title: 商业合作
 date: 2024-01-17 11:14:35
+custom_js: /assets/business.js
 ---
 <h2 style="color: #696969; text-align: center;">商业合作（白鲸商翻）</h2>
 

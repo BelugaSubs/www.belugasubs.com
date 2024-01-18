@@ -1,4 +1,11 @@
-#business-cases-example {
+#business-cases-example,
+#accounts-bilibili,
+#accounts-jinritoutiao,
+#accounts-xiaohongshu,
+#accounts-douyin,
+#accounts-zhihu,
+#accounts-weibo,
+#accounts-wechat {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -6,7 +13,14 @@
     padding: 20px;
 }
 
-#business-cases-example .case {
+#business-cases-example .case,
+#accounts-bilibili .case,
+#accounts-jinritoutiao .case,
+#accounts-xiaohongshu .case,
+#accounts-douyin .case,
+#accounts-zhihu .case,
+#accounts-weibo .case,
+#accounts-wechat .case {
     flex: 1 1 300px; /* 每个案例占据的最小宽度 */
     max-width: 350px; /* 每个案例的最大宽度 */
     text-align: center;
@@ -16,17 +30,32 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-#business-cases-example .case img {
+#business-cases-example .case img,
+#accounts-bilibili .case img,
+#accounts-jinritoutiao .case img,
+#accounts-xiaohongshu .case img,
+#accounts-douyin .case img,
+#accounts-zhihu .case img,
+#accounts-weibo .case img,
+#accounts-wechat .case img {
     width: 100%;
     height: 200px;
     object-fit: cover;
     border-bottom: 1px solid #ddd;
 }
 
-#business-cases-example .case-info {
+#business-cases-example .case-info,
+#accounts-bilibili .case-info,
+#accounts-jinritoutiao .case-info,
+#accounts-xiaohongshu .case-info,
+#accounts-douyin .case-info,
+#accounts-zhihu .case-info,
+#accounts-weibo .case-info,
+#accounts-wechat .case-info {
     padding: 15px;
 }
 
 #special-link p {
     color: rgb(21, 21, 21);
+    text-indent: 0;
 }

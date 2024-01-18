@@ -1,6 +1,7 @@
 ---
 title: 我们的成员
 date: 2024-01-16 19:56:56
+custom_js: /assets/members.js
 ---
 
 ## 组织架构
