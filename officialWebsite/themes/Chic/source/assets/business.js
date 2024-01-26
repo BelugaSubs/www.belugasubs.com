@@ -1,9 +1,9 @@
 // Business 商务合作案例
 document.addEventListener('DOMContentLoaded', function () {
     var cases = [
-        { name: "翼王", startDate: "2020-05", description: "内容翻译出海，帮助视频脚本进行英文的本土化翻译，并交由甲方进行YouTube发布", url: "https://space.bilibili.com/475961", imageUrl: "https://s2.loli.net/2024/01/18/SlBnb6HZJo79pqs.jpg" },
-        { name: "笔吧工作室", startDate: "2021-01", description: "内容翻译出海，帮助视频原稿进行英文的本土化翻译，并交由甲方进行YouTube发布", url: "https://space.bilibili.com/367877", imageUrl: "https://s2.loli.net/2024/01/18/f4SWlU7ijQP9qk2.jpg" },
-        { name: "极客湾", startDate: "2021-02", description: "内容出海优化润色，帮助视频脚本进行英文的本土化优化与润色翻译，并交由甲方进行YouTube发布", url: "https://space.bilibili.com/25876945/", imageUrl: "https://s2.loli.net/2024/01/18/1Md9PmuOgHnvytx.jpg" },
+        { name: "翼王", startDate: "2020-05", description: "提供英文脚本本土化翻译，助力YouTube平台发布。", url: "https://space.bilibili.com/475961", imageUrl: "https://s2.loli.net/2024/01/18/SlBnb6HZJo79pqs.jpg" },
+        { name: "笔吧工作室", startDate: "2021-01", description: "协助视频脚本英文翻译与本土化，确保内容符合国际观众的口味。", url: "https://space.bilibili.com/367877", imageUrl: "https://s2.loli.net/2024/01/18/f4SWlU7ijQP9qk2.jpg" },
+        { name: "极客湾", startDate: "2021-02", description: "润色与优化英文脚本，强化其国际传播效果。", url: "https://space.bilibili.com/25876945/", imageUrl: "https://s2.loli.net/2024/01/18/1Md9PmuOgHnvytx.jpg" },
     ];
 
     var container = document.querySelector('#business-cases-example');

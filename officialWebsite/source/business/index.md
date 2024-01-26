@@ -5,14 +5,29 @@ custom_js: /assets/business.js
 ---
 <h2 style="color: #696969; text-align: center;">商业合作（白鲸商翻）</h2>
 
-<h3 style="color: #696969; text-align: center;">合作案例</h3>
+> 携手白鲸商翻，让您的创意跨越语言界限，开拓全球市场，实现国际影响力的飞跃。
+
+### 合作案例
 
 <div id="business-cases-example">
         <!-- 案例将在这里动态生成 -->
 </div>
 
-<h3 style="color: #696969; text-align: center;">与我们合作</h3>
+### 我们的参考价格
 
-<p style="text-align: left;">为了支持字幕组的运营，包括服务器和私有网盘等基础设施的维护，以及对我们团队成员的合理激励，白鲸字幕组组长ZL Asica成立白鲸商翻，寻求与商业伙伴的合作。我们欢迎各类商业项目，例如商业视频翻译和商业文件翻译等。</p>
+为支持字幕组运营，包括基础设施维护及团队激励，白鲸字幕组组长ZL Asica创立了白鲸商翻。我们致力于提供高质量的商业视频和文件翻译服务，欢迎各类商业项目合作。
 
-<p style="text-align: left;">如果您对合作感兴趣，请通过<a href="mailto:admin@belugasubs.com" title="联系邮箱" target="_blank">admin@belugasubs.com</a>与我们取得联系。请在邮件中详述您的项目，并提供QQ、微信或其他便捷的联系方式。我们承诺在三个工作日内回复所有咨询，并感谢所有有意向与我们合作的朋友。白鲸商翻期待与您携手共进！</p>
+### 我们的译员
+
+- **经验丰富：**所有译员均具备丰富的听译和校对经验（在白鲸字幕组有过任职经验），深入理解YouTube及其他国际平台的内容风格。
+- **专业水平：**译员英语水平均达专业8级/CATTI二级笔译/托福105分/雅思7.5或同等级别。
+- **高效本土化：**专注于提供符合目标文化和语境的本土化翻译服务。
+
+### 我们的参考价格
+
+仅供参考，具体价格请与我们联系进行细节商讨。
+<img src="https://s2.loli.net/2024/01/27/x5oKvJFsnb9p6YW.jpg" alt="我们的价格" width="500" loading="lazy">
+
+### 与我们联系
+
+对于任何合作咨询，请通过 <a href="mailto:bd@belugasubs.com" title="联系邮箱" target="_blank">bd@belugasubs.com</a> 联系我们。我们将根据您的具体需求提供个性化报价。请在邮件中详细描述您的项目需求，并提供便捷的联系方式（如QQ、微信等）。我们承诺在三个工作日内回复所有咨询，并期待与您的合作！

@@ -20,16 +20,16 @@ document.addEventListener('DOMContentLoaded', function () {
             {name: "白鲸游戏组", startDate: "2021-01-27", description: "英语游戏组", url: "https://www.douyin.com/user/MS4wLjABAAAAN4N2ZoGbBK649RgUFWXXyaEm4pcurNrCz7ETUFsVf_w", imageUrl: "https://s2.loli.net/2024/01/19/BnsRAGtp76QCVMi.jpg"},
         ] },
         { containerId: '#accounts-xiaohongshu', accounts: [
-            {name: "白鲸游戏组", startDate: "2021", description: "邀请入驻-英语游戏组", url: "", imageUrl: "https://s2.loli.net/2024/01/19/BnsRAGtp76QCVMi.jpg"},
+            {name: "白鲸游戏组", startDate: "2021-05-26", description: "邀请入驻-英语游戏组", url: "", imageUrl: "https://s2.loli.net/2024/01/19/BnsRAGtp76QCVMi.jpg"},
         ] },
         { containerId: '#accounts-zhihu', accounts: [
             {name: "白鲸字幕组", startDate: "2019", description: "字幕组唯一知乎", url: "https://www.zhihu.com/people/belugasubs", imageUrl: "https://s2.loli.net/2024/01/17/CGeZhq1FYovxz2p.jpg"},
         ] },
         { containerId: '#accounts-weibo', accounts: [
-            {name: "白鲸字幕组", startDate: "2019-7-30", description: "字幕组唯一微博", url: "https://weibo.com/n/%E7%99%BD%E9%B2%B8%E5%AD%97%E5%B9%95%E7%BB%84", imageUrl: "https://s2.loli.net/2024/01/17/CGeZhq1FYovxz2p.jpg"},
+            {name: "白鲸字幕组", startDate: "2019-07-30", description: "字幕组唯一微博", url: "https://weibo.com/belugasubs", imageUrl: "https://s2.loli.net/2024/01/17/CGeZhq1FYovxz2p.jpg"},
         ] },
         { containerId: '#accounts-wechat', accounts: [
-            {name: "白鲸字幕组", startDate: "2019", description: "字幕组唯一微信公共号<br>微信扫码关注", url: "", imageUrl: "https://s2.loli.net/2024/01/18/aA754CQERrTDd8M.jpg"},
+            {name: "白鲸字幕组", startDate: "2019-07-31", description: "字幕组唯一微信公共号<br>微信扫码关注", url: "", imageUrl: "https://s2.loli.net/2024/01/18/aA754CQERrTDd8M.jpg"},
         ] },
     ];
 
