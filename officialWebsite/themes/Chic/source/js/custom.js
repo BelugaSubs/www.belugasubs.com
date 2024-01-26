@@ -1,12 +1,6 @@
 // 自动更新版权年份
-function updateCopyrightYear() {
-    const currentYear = new Date().getFullYear();
-    document.getElementById('copyright-current-year').textContent = currentYear;
-}
-
-// 页面加载完成后调用自定义函数
 document.addEventListener('DOMContentLoaded', () => {
-    updateCopyrightYear();
+    document.getElementById('copyright-current-year').textContent = new Date().getFullYear();
 });
 
 // 自定义console
