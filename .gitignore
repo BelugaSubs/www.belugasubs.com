@@ -157,3 +157,5 @@ Temporary Items
 
 # Delete hexo public folder
 public.zip
+public
+db.json
