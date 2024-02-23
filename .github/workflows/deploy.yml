@@ -1,0 +1,72 @@
+name: Deploy Hexo Site
+
+on:
+  pull_request:
+    branches:
+      - master
+      - main
+    paths:
+      - "officialWebsite/scaffolds/**"
+      - "officialWebsite/source/**"
+      - "officialWebsite/themes/**"
+      - "officialWebsite/_config.yml"
+      - "officialWebsite/_config.*.yml"
+      - "officialWebsite/package.json"
+      - "officialWebsite/package-lock.json"
+  push:
+    branches:
+      - master
+      - main
+    paths:
+      - "officialWebsite/scaffolds/**"
+      - "officialWebsite/source/**"
+      - "officialWebsite/themes/**"
+      - "officialWebsite/_config.yml"
+      - "officialWebsite/_config.*.yml"
+      - "officialWebsite/package.json"
+      - "officialWebsite/package-lock.json"
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "latest" # Use the latest Node.js version
+      - name: Cache dependencies 📦
+        uses: actions/cache@v4
+        with:
+          path: officialWebsite/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Install Hexo CLI
+        run: npm install -g hexo-cli
+        working-directory: ./officialWebsite
+      - name: Install dependencies 📁
+        run: npm install
+        working-directory: ./officialWebsite
+      - name: Generate Hexo static files
+        run: npx hexo generate
+        working-directory: ./officialWebsite
+      - name: Purge unused CSS 🧹
+        run: |
+          npm install -g purgecss
+          purgecss -c purgecss.config.js
+        working-directory: ./officialWebsite
+      - name: Remove archives and posts directories
+        run: |
+          rm -rf public/archives
+          rm -rf public/posts
+        working-directory: ./officialWebsite
+      - name: Deploy 🚀
+        if: github.event_name != 'pull_request'
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: ./officialWebsite/public
