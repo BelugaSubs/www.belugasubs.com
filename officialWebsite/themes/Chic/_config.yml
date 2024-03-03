@@ -24,10 +24,10 @@ avatar: https://s2.loli.net/2024/01/17/CGeZhq1FYovxz2p.jpg
 ## Complete url after key words.
 ## Unused key can be commented out.
 links:
-  # Blog: 
+  # Blog:
   # Category:
-  # Tags: 
-  # Link: 
+  # Tags:
+  # Link:
   # Resume:
   # Publish:
   # Trophy:
@@ -51,7 +51,7 @@ links:
   # Weibo: https://weibo.com/n/%E7%99%BD%E9%B2%B8%E5%AD%97%E5%B9%95%E7%BB%84
   # Email: emailto:admin@belugasubs.com
   # WeChat:
-  # Github: 
+  # Github:
 
 # how links show: you have 2 choice--text or icon.
 links_text_enable: false
@@ -101,7 +101,6 @@ scripts:
   - /js/custom.js
     # tscanlin/tocbot: Build a table of contents from headings in an HTML document.
     # https://github.com/tscanlin/tocbot
-
 
 # plugin functions
 ## Mathjax: Math Formula Support

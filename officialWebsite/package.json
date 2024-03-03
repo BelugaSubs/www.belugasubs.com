@@ -1,15 +1,17 @@
 {
-  "name": "hexo-site",
+  "name": "belugasubs_official_website",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "build": "hexo generate",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
-    "server": "hexo server"
+    "server": "hexo server",
+    "prettier-check": "prettier --check .",
+    "prettier-write": "prettier --write ."
   },
   "hexo": {
-    "version": "7.0.0"
+    "version": "7.1.1"
   },
   "dependencies": {
     "hexo": "^7.1.1",
@@ -23,5 +25,8 @@
     "hexo-renderer-stylus": "^3.0.0",
     "hexo-server": "^3.0.0",
     "hexo-theme-landscape": "^1.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5"
   }
 }

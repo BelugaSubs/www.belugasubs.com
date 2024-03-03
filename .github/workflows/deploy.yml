@@ -67,6 +67,11 @@ jobs:
         working-directory: ./officialWebsite
       - name: Deploy 🚀
         if: github.event_name != 'pull_request'
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          folder: ./officialWebsite/public
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./officialWebsite/public
+          # 删除gh-pages分支的现有文件
+          keep_files: false
+          # 指定发布到gh-pages分支
+          publish_branch: gh-pages
