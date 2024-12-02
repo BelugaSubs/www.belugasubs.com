@@ -1,4 +1,4 @@
-name: Deploy Hexo Site
+name: 🐳 Deploy Official Website
 
 on:
   pull_request:
@@ -6,25 +6,25 @@ on:
       - master
       - main
     paths:
-      - "officialWebsite/scaffolds/**"
-      - "officialWebsite/source/**"
-      - "officialWebsite/themes/**"
-      - "officialWebsite/_config.yml"
-      - "officialWebsite/_config.*.yml"
-      - "officialWebsite/package.json"
-      - "officialWebsite/package-lock.json"
+      - "scaffolds/**"
+      - "source/**"
+      - "themes/**"
+      - "_config.yml"
+      - "_config.*.yml"
+      - "package.json"
+      - "pnpm-lock.yaml"
   push:
     branches:
       - master
       - main
     paths:
-      - "officialWebsite/scaffolds/**"
-      - "officialWebsite/source/**"
-      - "officialWebsite/themes/**"
-      - "officialWebsite/_config.yml"
-      - "officialWebsite/_config.*.yml"
-      - "officialWebsite/package.json"
-      - "officialWebsite/package-lock.json"
+      - "scaffolds/**"
+      - "source/**"
+      - "themes/**"
+      - "_config.yml"
+      - "_config.*.yml"
+      - "package.json"
+      - "pnpm-lock.yaml"
 
 permissions:
   contents: write
@@ -33,44 +33,50 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎️
+      - name: 🛎️ Checkout
         uses: actions/checkout@v4
-      - name: Set up Node.js
+
+      - name: 🛠️ Install  pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
+      - name: 🛠️ Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "latest" # Use the latest Node.js version
-      - name: Cache dependencies 📦
-        uses: actions/cache@v4
+          node-version: "lts/*"
+          cache: "pnpm"
+
+      - name: 🗂️ Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v4
+        name: ⚡ Setup pnpm cache
         with:
-          path: officialWebsite/node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-node-
-      - name: Install Hexo CLI
-        run: npm install -g hexo-cli
-        working-directory: ./officialWebsite
-      - name: Install dependencies 📁
-        run: npm install
-        working-directory: ./officialWebsite
-      - name: Generate Hexo static files
-        run: npx hexo generate
-        working-directory: ./officialWebsite
+            ${{ runner.os }}-pnpm-store-
+
+      - name: 📂 Install dependencies
+        run: pnpm install
+
+      - name: 🏗️ Build
+        run: pnpm run build
+
       - name: Purge unused CSS 🧹
         run: |
-          npm install -g purgecss
-          purgecss -c purgecss.config.js
-        working-directory: ./officialWebsite
-      - name: Remove archives and posts directories
-        run: |
-          rm -rf public/archives
-          rm -rf public/posts
-        working-directory: ./officialWebsite
-      - name: Deploy 🚀
+          pnpm install -g purgecss
+          pnpm purgecss -c purgecss.config.js
+
+      - name: Deploy to gh-pages branch 🚀
         if: github.event_name != 'pull_request'
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./officialWebsite/public
+          publish_dir: ./public
           # 删除gh-pages分支的现有文件
           keep_files: false
           # 指定发布到gh-pages分支
