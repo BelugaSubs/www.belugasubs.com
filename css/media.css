@@ -108,12 +108,29 @@
   .archive .archive-item .archive-item-date {
     display: none;
   }
+  #dynamic-to-top {
+    display: none !important;
+  }
   .footer {
     height: 3rem;
     width: 100%;
     text-align: center;
     line-height: 1.5rem;
     padding-top: 2em;
+  }
+  .post-warp {
+    padding-top: 6em;
+  }
+  .post-warp .archive-item-date {
+    display: none;
+  }
+  .categories .categories-card .card-item {
+    width: 100%;
+    display: flex;
+    min-height: 0;
+  }
+  .categories .categories-card .card-item .categories {
+    overflow: hidden;
   }
 }
 /* iPads (portrait and landscape) ----------- */
@@ -129,3 +146,8 @@
   }
 }
 /* post toc Style */
+@media screen and (max-width: 1279px) {
+  .post-toc {
+    display: none;
+  }
+}
