@@ -22,21 +22,21 @@
     "hexo-generator-index": "^4.0.0",
     "hexo-generator-tag": "^2.0.0",
     "hexo-renderer-ejs": "^2.0.0",
-    "hexo-renderer-marked": "^6.0.0",
+    "hexo-renderer-marked": "^7.0.0",
     "hexo-renderer-stylus": "^3.0.0",
     "hexo-server": "^3.0.0",
     "hexo-theme-landscape": "^1.0.0"
   },
   "devDependencies": {
-    "prettier": "^3.4.1",
     "@zl-asica/prettier-config": "^1.0.7",
     "husky": "^9.1.7",
-    "lint-staged": "^15.2.10"
+    "lint-staged": "^15.4.1",
+    "prettier": "^3.4.2"
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx,vue,css,md}": [
       "prettier --write"
     ]
   },
-  "packageManager": "pnpm@9.14.4"
+  "packageManager": "pnpm@9.15.4"
 }

@@ -6,11 +6,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // 自定义console
 console.clear();
-console.log(
-  "%c由ZL Asica制作搭建与运行\nBuilt and Operated by ZL Asica",
-  "background:#fff;color:#000000",
-);
-console.log(getCurrentDate());
+console.log(`
+  ______ _ _           
+|__ / | / \\ ___(_) ___ __ _
+  / /| | / _ \\ / __| |/ __/ _\` |
+  / /_| |___ / ___ \\\\__ \\ | (_| (_| |
+/____|_____| /_/ \\_\\___/_|\\___\\__,_|
+
+由ZL Asica 制作搭建与运行
+Built and Operated by ZL Asica
+访问我的网站/ Visit my website:
+https://www.zla.pub
+
+${getCurrentDate()}
+`);
 
 function getCurrentDate() {
   var date = new Date();
