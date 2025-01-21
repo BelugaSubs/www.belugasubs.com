@@ -1,17 +1,17 @@
 // 页面加载完成后调用自定义函数
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   // 初始化地图并设置中心点和缩放级别
-  var map = L.map("membersMap").setView([30.5728, 104.0668], 2.3);
+  var map = L.map('membersMap').setView([30.5728, 104.0668], 2.3);
 
   // 添加地图图层
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    attribution: "© OpenStreetMap contributors",
+    attribution: '© OpenStreetMap contributors',
   }).addTo(map);
 
   // 使用 fetch API 获取 CSV 数据
   // CSV 数据格式：latitude,longitude,info
-  fetch("/assets/members.csv")
+  fetch('/assets/members.csv')
     .then((response) => response.text()) // 将响应转换为文本
     .then((csvString) => d3.csvParse(csvString)) // 使用 D3.js 解析 CSV 文本
     .then((data) => {
