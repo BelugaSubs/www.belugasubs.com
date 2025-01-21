@@ -6,25 +6,25 @@ on:
       - master
       - main
     paths:
-      - "scaffolds/**"
-      - "source/**"
-      - "themes/**"
-      - "_config.yml"
-      - "_config.*.yml"
-      - "package.json"
-      - "pnpm-lock.yaml"
+      - 'scaffolds/**'
+      - 'source/**'
+      - 'themes/**'
+      - '_config.yml'
+      - '_config.*.yml'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
   push:
     branches:
       - master
       - main
     paths:
-      - "scaffolds/**"
-      - "source/**"
-      - "themes/**"
-      - "_config.yml"
-      - "_config.*.yml"
-      - "package.json"
-      - "pnpm-lock.yaml"
+      - 'scaffolds/**'
+      - 'source/**'
+      - 'themes/**'
+      - '_config.yml'
+      - '_config.*.yml'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
 
 permissions:
   contents: write
@@ -44,8 +44,8 @@ jobs:
       - name: 🛠️ Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "lts/*"
-          cache: "pnpm"
+          node-version: 'lts/*'
+          cache: 'pnpm'
 
       - name: 🗂️ Get pnpm store directory
         shell: bash

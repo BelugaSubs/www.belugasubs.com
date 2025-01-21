@@ -37,7 +37,7 @@ titlecase: false # Transform title into titlecase
 external_link:
   enable: true # Open external links in new tab
   field: site # Apply to the whole site
-  exclude: ""
+  exclude: ''
 filename_case: 0
 render_drafts: false
 post_asset_folder: false
@@ -47,20 +47,20 @@ syntax_highlighter: highlight.js
 highlight:
   line_number: true
   auto_detect: false
-  tab_replace: ""
+  tab_replace: ''
   wrap: true
   hljs: false
 prismjs:
   preprocess: true
   line_number: true
-  tab_replace: ""
+  tab_replace: ''
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
-  path: ""
+  path: ''
   per_page: 10
   order_by: -date
 
@@ -80,7 +80,7 @@ meta_generator: true
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
 ## updated_option supports 'mtime', 'date', 'empty'
-updated_option: "mtime"
+updated_option: 'mtime'
 
 # Pagination
 ## Set per_page to 0 to disable pagination
@@ -103,17 +103,17 @@ nofollow:
   enable: true
   field: site
   exclude:
-    - "www.aifans.cc"
-    - "www.pccstudio.com"
-    - "www.kizunaai.fun"
-    - "www.zl-asica.com"
-    - "www.zla.pub"
-    - "www.zla.app"
-    - "zla.icu"
+    - 'www.aifans.cc'
+    - 'www.pccstudio.com'
+    - 'www.kizunaai.fun'
+    - 'www.zl-asica.com'
+    - 'www.zla.pub'
+    - 'www.zla.app'
+    - 'zla.icu'
 
 # 站点地图非自动生成，注意手动更改sitemap.xml中的<lastmod>标签
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ""
+  type: ''

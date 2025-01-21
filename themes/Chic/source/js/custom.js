@@ -1,6 +1,6 @@
 // 自动更新版权年份
-document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("copyright-current-year").textContent =
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('copyright-current-year').textContent =
     new Date().getFullYear();
 });
 
@@ -23,27 +23,27 @@ ${getCurrentDate()}
 
 function getCurrentDate() {
   var date = new Date();
-  var seperator1 = "-";
-  var seperator2 = ":";
+  var seperator1 = '-';
+  var seperator2 = ':';
   var hours = date.getHours();
   var minutes = date.getMinutes();
   var seconds = date.getSeconds();
   var month = date.getMonth() + 1;
   var strDate = date.getDate();
   if (month >= 1 && month <= 9) {
-    month = "0" + month;
+    month = '0' + month;
   }
   if (strDate >= 0 && strDate <= 9) {
-    strDate = "0" + strDate;
+    strDate = '0' + strDate;
   }
   if (hours >= 0 && hours <= 9) {
-    hours = "0" + hours;
+    hours = '0' + hours;
   }
   if (minutes >= 0 && minutes <= 9) {
-    minutes = "0" + minutes;
+    minutes = '0' + minutes;
   }
   if (seconds >= 0 && seconds <= 9) {
-    seconds = "0" + seconds;
+    seconds = '0' + seconds;
   }
   var currentdate =
     date.getFullYear() +
@@ -51,7 +51,7 @@ function getCurrentDate() {
     month +
     seperator1 +
     strDate +
-    " " +
+    ' ' +
     hours +
     seperator2 +
     minutes +

@@ -55,7 +55,7 @@ links:
 
 # how links show: you have 2 choice--text or icon.
 links_text_enable: false
-links_icon_enable: true
+links_icon_enable: false
 
 # Post page
 ## Post_meta

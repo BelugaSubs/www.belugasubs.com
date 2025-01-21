@@ -33,7 +33,7 @@ a.toc-link {
 }
 .toc-link::before {
   background-color: #eee;
-  content: " ";
+  content: ' ';
   display: inline-block;
   height: inherit;
   left: 0;

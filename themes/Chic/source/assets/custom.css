@@ -43,7 +43,7 @@
   object-fit: cover;
   border-bottom: 1px solid #ddd;
   /* 默认的背景，作为加载前的占位符 */
-  background: #f4f4f4 url("https://s2.loli.net/2024/01/19/yiqRBeYSrlgnNAT.webp")
+  background: #f4f4f4 url('https://s2.loli.net/2024/01/19/yiqRBeYSrlgnNAT.webp')
     no-repeat center center;
   /* 当图片加载后，背景将被图片本身覆盖 */
 }
