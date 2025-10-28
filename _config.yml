@@ -107,8 +107,8 @@ nofollow:
     - 'www.pccstudio.com'
     - 'www.kizunaai.fun'
     - 'www.zl-asica.com'
-    - 'www.zla.pub'
-    - 'www.zla.app'
+    - 'zla.pub'
+    - 'zla.app'
     - 'zla.icu'
 
 # 站点地图非自动生成，注意手动更改sitemap.xml中的<lastmod>标签

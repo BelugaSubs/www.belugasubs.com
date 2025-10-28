@@ -98,7 +98,7 @@ scripts:
   - /js/tocbot.min.js
   - https://unpkg.com/leaflet@1.7.1/dist/leaflet.js # 引入 Leaflet 地图库的 JavaScript
   - https://d3js.org/d3-dsv.v1.min.js # 引入 D3.js 库来解析 CSV 文件
-  - /js/custom.js
+  - https://cdn.jsdelivr.net/gh/zl-asica/web-cdn/js/zlasica.js
     # tscanlin/tocbot: Build a table of contents from headings in an HTML document.
     # https://github.com/tscanlin/tocbot
 

@@ -1,45 +1,124 @@
-<header>
-    <nav class="navbar">
-        <div class="container">
-            <div class="navbar-header header-logo"><a href="<%- config.root %>"><%= theme.navname %></a></div>
-            <div class="menu navbar-right">
-                <% for (var i in theme.nav){ %>
-                    <a class="menu-item" href="<%- url_for(theme.nav[i]) %>"><%= i %></a>
-                <% } %>
-                <input id="switch_default" type="checkbox" class="switch_default">
-                <label for="switch_default" class="toggleBtn"></label>
-            </div>
+<header class="site-header">
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-left">
+        <div class="navbar-header header-logo">
+          <a href="<%- config.root %>"><%= theme.navname %></a>
         </div>
-    </nav>
+      </div>
 
-    <%# mobile %>
-    <nav class="navbar-mobile" id="nav-mobile">
-        <div class="container">
-            <div class="navbar-header">
-                <div>
-                    <a href="<%- config.root %>"><%= theme.navname %></a><a id="mobile-toggle-theme">·&nbsp;Light</a>
-                </div>
-                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
-            </div>
-            <div class="menu" id="mobile-menu">
-                <% for (var i in theme.nav){ %>
-                    <a class="menu-item" href="<%- url_for(theme.nav[i]) %>"><%= i %></a>
-                <% } %>
-            </div>
+      <div class="navbar-right">
+        <!-- 桌面菜单 -->
+        <div class="menu--primary" id="primary-menu" role="navigation" aria-label="Primary">
+          <% const current = url_for(page.path || '') %>
+          <% for (var label in theme.nav){ 
+               const href = url_for(theme.nav[label])
+               const isActive = current.indexOf(href) === 0 ? 'active' : ''
+          %>
+            <a class="menu-item <%= isActive %>" href="<%- href %>"><%= label %></a>
+          <% } %>
+          <input id="switch_default" type="checkbox" class="switch_default" aria-label="Toggle theme">
+          <label for="switch_default" class="toggleBtn" aria-hidden="true"></label>
         </div>
-    </nav>
 
+        <!-- 汉堡按钮（移动端可见） -->
+        <button class="menu-toggle" id="menu-toggle"
+                type="button"
+                aria-controls="mobile-drawer"
+                aria-expanded="false"
+                aria-label="Open menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 移动抽屉 -->
+  <div class="mobile-drawer" id="mobile-drawer" hidden>
+    <div class="drawer-overlay" id="drawer-overlay" tabindex="-1" aria-hidden="true"></div>
+    <div class="drawer-panel" role="dialog" aria-modal="true" aria-label="Mobile menu">
+      <nav class="drawer-menu">
+        <% for (var label in theme.nav){ %>
+          <a class="drawer-link" href="<%- url_for(theme.nav[label]) %>"><%= label %></a>
+        <% } %>
+      </nav>
+      <div class="drawer-footer">
+        <button id="mobile-toggle-theme" class="theme-btn" type="button">Toggle Theme</button>
+      </div>
+    </div>
+  </div>
 </header>
+
 <script>
-    var mobileBtn = function f() {
-        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
-        var mobileMenu = document.getElementById("mobile-menu");
-        if(toggleMenu.classList.contains("active")){
-           toggleMenu.classList.remove("active")
-            mobileMenu.classList.remove("active")
-        }else{
-            toggleMenu.classList.add("active")
-            mobileMenu.classList.add("active")
-        }
+  // ===== Drawer toggle =====
+  (function () {
+    const body = document.body;
+    const btn = document.getElementById('menu-toggle');
+    const drawer = document.getElementById('mobile-drawer');
+    const overlay = document.getElementById('drawer-overlay');
+    const closeBtn = document.getElementById('drawer-close');
+
+    function openDrawer() {
+      drawer.hidden = false;
+      body.classList.add('drawer-open', 'no-scroll');
+      btn.setAttribute('aria-expanded', 'true');
+      // 延迟添加以触发过渡
+      requestAnimationFrame(() => drawer.classList.add('visible'));
     }
+    function closeDrawer() {
+      drawer.classList.remove('visible');
+      body.classList.remove('drawer-open', 'no-scroll');
+      btn.setAttribute('aria-expanded', 'false');
+      // 等过渡结束再隐藏
+      setTimeout(() => { drawer.hidden = true; }, 200);
+    }
+
+    btn && btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      expanded ? closeDrawer() : openDrawer();
+    });
+
+    overlay && overlay.addEventListener('click', closeDrawer);
+    closeBtn && closeBtn.addEventListener('click', closeDrawer);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !drawer.hidden) closeDrawer();
+    });
+
+    // 点击抽屉里的链接后自动关闭
+    drawer && drawer.addEventListener('click', (e) => {
+      const a = e.target.closest('a');
+      if (a) closeDrawer();
+    });
+  })();
+
+  // ===== Theme Switch =====
+  (function () {
+    const checkbox = document.getElementById('switch_default');
+    const mobileToggle = document.getElementById('mobile-toggle-theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function applyTheme(mode) {
+      document.documentElement.setAttribute('data-theme', mode);
+      localStorage.setItem('theme', mode);
+      if (checkbox) checkbox.checked = (mode === 'dark');
+    }
+
+    const saved = localStorage.getItem('theme');
+    applyTheme(saved || (prefersDark.matches ? 'dark' : 'light'));
+
+    prefersDark.addEventListener('change', (e) => {
+      const hasManual = !!localStorage.getItem('theme');
+      if (!hasManual) applyTheme(e.matches ? 'dark' : 'light');
+    });
+
+    checkbox && checkbox.addEventListener('change', () => {
+      applyTheme(checkbox.checked ? 'dark' : 'light');
+    });
+    mobileToggle && mobileToggle.addEventListener('click', () => {
+      const cur = document.documentElement.getAttribute('data-theme') || 'light';
+      applyTheme(cur === 'dark' ? 'light' : 'dark');
+    });
+  })();
 </script>

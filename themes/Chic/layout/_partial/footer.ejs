@@ -1,11 +1,24 @@
 <footer id="footer" class="footer">
-    <div class="copyright">
-        <p>
-            &copy; 2019-<span id="copyright-current-year"></span> 白鲸字幕组 All Rights Reserved
-            <br>
-            Powered by <a class="copyright" href="https://hexo.io" target="_blank" title="使用的框架-Hexo">Hexo</a> 
-& <a class="copyright" href="https://github.com/Siricee/hexo-theme-Chic" target="_blank" title="基于的Hexo模板">Chic</a> 
-with modifications
-        </p>
-    </div>
+  <div class="footer-inner container">
+    <p class="footer-text">
+      &copy; 2019-<span id="copyright-current-year"></span> 白鲸字幕组 All Rights Reserved
+    </p>
+    <p class="footer-meta">
+      Powered by 
+      <a href="https://hexo.io" target="_blank" rel="noopener" title="使用的框架-Hexo">Hexo</a>
+      & 
+      <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank" rel="noopener" title="基于的 Hexo 模板">
+        Chic
+      </a>
+      with 
+      <a href="https://github.com/BelugaSubs/www.belugasubs.com" target="_blank" rel="noopener" title="本站源码仓库">
+        custom modifications by us
+    </a>
+    .
+    </p>
+  </div>
 </footer>
+
+<script>
+  document.getElementById('copyright-current-year').textContent = new Date().getFullYear()
+</script>

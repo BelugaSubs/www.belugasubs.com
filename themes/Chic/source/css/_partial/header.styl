@@ -1,21 +1,257 @@
+NAV_H = 64px
+
+/* 基础容器 */
+.site-header
+  position sticky
+  top 0
+  z-index 1200
+  backdrop-filter blur(6px)
+
+.container
+  max-width 1100px
+  margin 0 auto
+  padding 0 16px
+
+/* 顶部导航 */
+.navbar
+  display block
+  border-bottom 1px solid rgba(0,0,0,.06)
+  background-color transparent
+  .dark-theme &
+    border-bottom 1px solid rgba(255,255,255,.08)
+
+.navbar .container
+  display flex
+  align-items center
+  justify-content space-between
+  min-height 56px
+
 .header-logo a
+  display inline-flex
+  align-items center
+  font-weight 700
+  text-decoration none
   padding 0
+  line-height 1
 
-.navbar .menu a
-  padding 0 8px
+.navbar-right
+  display flex
+  align-items center
+  gap 12px
 
+/* 桌面主菜单（命名空间避免和旧 .menu 冲突） */
+.menu--primary
+  display flex
+  align-items center
+  gap 8px
 
-.navbar .menu .active
-  font-weight 900
+.menu-item
+  display inline-flex
+  align-items center
+  padding 0 10px
+  line-height 1
+  height 40px
+  border-radius 8px
+  text-decoration none
+  transition background-color .15s ease, color .15s ease
+  &:hover, &:focus
+    background-color rgba(0,0,0,.06)
+    outline none
+  .dark-theme &
+    &:hover, &:focus
+      background-color rgba(255,255,255,.08)
+
+.menu-item.active
+  font-weight 800
   color $light-navbar-active-color
   .dark-theme &
     color $dark-navbar-active-color
 
+/* 主题开关 */
+.switch_default
+  margin-left 8px
 
-.navbar-header a:hover, .navbar .menu a:hover
-  background-color transparent
-
-header label
-  margin-left 15px
+header label.toggleBtn
+  margin-left 6px
   position relative
   -webkit-transform translateY(.1em) translateX(.5em)
+
+/* 汉堡按钮（现代化动画） */
+.menu-toggle
+  display none
+  appearance none
+  -webkit-appearance none
+  background transparent
+  border none
+  color inherit
+  font inherit
+  padding 10px
+  border-radius 10px
+  cursor pointer
+  position relative
+  width 44px
+  height 40px
+  z-index 1100
+  &:hover, &:focus
+    background-color rgba(0,0,0,.06)
+    outline none
+  .dark-theme &
+    &:hover, &:focus
+      background-color rgba(255,255,255,.08)
+
+.menu-toggle .bar
+  position absolute
+  left 9px
+  right 9px
+  height 2px
+  border-radius 2px
+  background currentColor
+  transition transform .2s ease, opacity .2s ease, top .2s ease
+  &:nth-child(1)
+    top 12px
+  &:nth-child(2)
+    top 19px
+  &:nth-child(3)
+    top 26px
+
+/* 按 aria-expanded 做汉堡动画 */
+.drawer-open #menu-toggle .bar:nth-child(1)
+  transform rotate(45deg)
+  top 19px
+
+.drawer-open #menu-toggle .bar:nth-child(2)
+  opacity 0
+
+.drawer-open #menu-toggle .bar:nth-child(3)
+  transform rotate(-45deg)
+  top 19px
+
+/* 移动抽屉 */
+.mobile-drawer
+  position fixed
+  inset 0
+  z-index 1100
+  pointer-events none
+  opacity 0
+  transition opacity .2s ease
+
+.mobile-drawer.visible
+  opacity 1
+
+.drawer-overlay
+  position absolute
+  left 0
+  right 0
+  top NAV_H
+  bottom 0
+  background rgba(0,0,0,.35)
+  pointer-events auto
+
+.drawer-panel
+  position absolute
+  left 0
+  right 0
+  top NAV_H
+  background $light-background-color
+  border-bottom-left-radius 12px
+  border-bottom-right-radius 12px
+  pointer-events auto 
+  transform translateY(-100%)
+  transition transform .2s ease
+  border-bottom 1px solid rgba(0,0,0,.08)
+  .dark-theme &
+    background $dark-background-color
+    border-bottom 1px solid rgba(255,255,255,.08)
+
+.mobile-drawer.visible .drawer-panel
+  transform translateY(0)
+
+.drawer-header
+  display flex
+  align-items center
+  justify-content space-between
+  padding 12px 16px
+
+.drawer-header .brand
+  font-weight 700
+  text-decoration none
+
+.drawer-close
+  appearance none
+  -webkit-appearance none
+  background transparent
+  border none
+  color inherit
+  font-size 20px
+  line-height 1
+  padding 8px
+  border-radius 8px
+  cursor pointer
+  &:hover, &:focus
+    background-color rgba(0,0,0,.06)
+  .dark-theme &
+    &:hover, &:focus
+      background-color rgba(255,255,255,.08)
+
+.drawer-menu
+  display flex
+  flex-direction column
+  padding 8px 12px 12px
+  gap 4px
+
+.drawer-link
+  display block
+  padding 10px 12px
+  border-radius 8px
+  text-decoration none
+  transition background-color .15s ease
+  &:hover, &:focus
+    background-color rgba(0,0,0,.06)
+  .dark-theme &
+    &:hover, &:focus
+      background-color rgba(255,255,255,.08)
+
+.drawer-footer
+  padding 10px 12px 14px
+  border-top 1px solid rgba(0,0,0,.06)
+  .dark-theme &
+    border-top 1px solid rgba(255,255,255,.08)
+
+.theme-btn
+  appearance none
+  -webkit-appearance none
+  border 1px solid rgba(0,0,0,.2)
+  .dark-theme &
+    border 1px solid rgba(255,255,255,.25)
+  background transparent
+  color inherit
+  padding 8px 12px
+  border-radius 10px
+  cursor pointer
+  &:hover, &:focus
+    background-color rgba(0,0,0,.06)
+  .dark-theme &
+    &:hover, &:focus
+      background-color rgba(255,255,255,.08)
+
+/* 禁止在抽屉打开时滚动 */
+.no-scroll
+  overflow hidden
+
+/* —— 响应式 —— */
+/* 小屏（<=780）：隐藏桌面菜单，显示汉堡与抽屉 */
+@media (max-width: 780px)
+  .menu--primary
+    display none
+  .menu-toggle
+    display inline-flex
+  /* 抽屉默认由 JS 控制 hidden/visible，这里不强制 display */
+
+/* 大屏（>780）：显示桌面菜单，隐藏汉堡与抽屉 */
+@media (min-width: 781px)
+  .menu--primary
+    display flex
+  .menu-toggle
+    display none
+  .mobile-drawer
+    display none
