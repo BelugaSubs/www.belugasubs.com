@@ -12,11 +12,11 @@ custom_js: /assets/members.js
 
 ## 管理团队
 
-下面是我们管理团队的成员名单，以及他们对应的邮箱前缀。如果要联系我们，可以联系任何下面的对应成员邮箱，再抄送(CC)admin@belugasubs.com即可。所有人字幕组成员的工作邮箱后缀都是@belugasubs.com。
+下面是我们管理团队的成员名单，以及他们对应的邮箱前缀。如果要联系我们，可以联系任何下面的对应成员邮箱，再抄送 (CC) admin@belugasubs.com 即可。所有人字幕组成员的工作邮箱后缀都是@belugasubs.com。
 
 <img src="https://s2.loli.net/2024/01/18/oA5mYNLrwMS2nyd.jpg" alt="白鲸字幕组-管理团队" width="500" loading="lazy">
 
-<div style="text-align: center;"><small>最后更新日期：2024年3月</small></div>
+<div style="text-align: center;"><small>最后更新日期：2025 年 10 月</small></div>
 
 ## 成员地图
 

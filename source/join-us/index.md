@@ -27,6 +27,8 @@ date: 2020-01-31 09:30:00
 
 <h3 align="center">申请方式</h3>
 
-<div style="color: #A9A9A9; margin-top: 1em; text-align: center;">请微信扫码关注我们的公众号，点击下方入组申请进行填表申请。</div>
+<div style="color: #ff6e6eff; font-weight: bold; margin-top: 1em; text-align: center;">白鲸字幕组目前已无限期暂停运营及招募，敬请扫描下方二维码，关注我们的微信公众号获取第一手资讯</div>
+
+<!-- <div style="color: #A9A9A9; margin-top: 1em; text-align: center;">请微信扫码关注我们的公众号，点击下方入组申请进行填表申请。</div> -->
 
 <img src="https://s2.loli.net/2024/01/18/aA754CQERrTDd8M.jpg" alt="微信公众号" width="200" loading="lazy">
