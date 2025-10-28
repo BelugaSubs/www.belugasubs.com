@@ -7,9 +7,11 @@
     "clean": "hexo clean",
     "deploy": "hexo deploy",
     "server": "hexo server",
+    "build-ci": "hexo clean && hexo generate",
     "dev": "hexo clean && hexo generate && hexo server --open",
     "prettier-check": "prettier --check .",
-    "prettier-write": "prettier --write ."
+    "prettier-write": "prettier --write .",
+    "postinstall": "husky || true"
   },
   "hexo": {
     "version": "8.1.0"
