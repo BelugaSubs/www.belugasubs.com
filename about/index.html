@@ -49,7 +49,7 @@
     
     <script src="https://d3js.org/d3-dsv.v1.min.js"></script>
     
-    <script src="/js/custom.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/zl-asica/web-cdn/js/zlasica.js"></script>
     
 
 
@@ -75,78 +75,151 @@
             const pagebody = document.getElementsByTagName('body')[0]
             if (isDark) {
                 pagebody.classList.add('dark-theme');
-                // mobile
-                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
             } else {
                 pagebody.classList.remove('dark-theme');
-                // mobile
-                document.getElementById("mobile-toggle-theme").innerText = "· Light"
             }
         })();
     </script>
 
     <div class="wrapper">
-        <header>
-    <nav class="navbar">
-        <div class="container">
-            <div class="navbar-header header-logo"><a href="/">白鲸字幕组官网</a></div>
-            <div class="menu navbar-right">
-                
-                    <a class="menu-item" href="/accounts">旗下账号</a>
-                
-                    <a class="menu-item" href="/members">成员</a>
-                
-                    <a class="menu-item" href="/about">关于</a>
-                
-                    <a class="menu-item" href="/join-us">加入</a>
-                
-                    <a class="menu-item" href="/business">商业合作</a>
-                
-                <input id="switch_default" type="checkbox" class="switch_default">
-                <label for="switch_default" class="toggleBtn"></label>
-            </div>
+        <header class="site-header">
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-left">
+        <div class="navbar-header header-logo">
+          <a href="/">白鲸字幕组官网</a>
         </div>
-    </nav>
+      </div>
 
-    
-    <nav class="navbar-mobile" id="nav-mobile">
-        <div class="container">
-            <div class="navbar-header">
-                <div>
-                    <a href="/">白鲸字幕组官网</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
-                </div>
-                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
-            </div>
-            <div class="menu" id="mobile-menu">
-                
-                    <a class="menu-item" href="/accounts">旗下账号</a>
-                
-                    <a class="menu-item" href="/members">成员</a>
-                
-                    <a class="menu-item" href="/about">关于</a>
-                
-                    <a class="menu-item" href="/join-us">加入</a>
-                
-                    <a class="menu-item" href="/business">商业合作</a>
-                
-            </div>
+      <div class="navbar-right">
+        <!-- 桌面菜单 -->
+        <div class="menu--primary" id="primary-menu" role="navigation" aria-label="Primary">
+          
+          
+            <a class="menu-item " href="/accounts">旗下账号</a>
+          
+            <a class="menu-item " href="/members">成员</a>
+          
+            <a class="menu-item active" href="/about">关于</a>
+          
+            <a class="menu-item " href="/join-us">加入</a>
+          
+            <a class="menu-item " href="/business">商业合作</a>
+          
+          <input id="switch_default" type="checkbox" class="switch_default" aria-label="Toggle theme">
+          <label for="switch_default" class="toggleBtn" aria-hidden="true"></label>
         </div>
-    </nav>
 
+        <!-- 汉堡按钮（移动端可见） -->
+        <button class="menu-toggle" id="menu-toggle"
+                type="button"
+                aria-controls="mobile-drawer"
+                aria-expanded="false"
+                aria-label="Open menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 移动抽屉 -->
+  <div class="mobile-drawer" id="mobile-drawer" hidden>
+    <div class="drawer-overlay" id="drawer-overlay" tabindex="-1" aria-hidden="true"></div>
+    <div class="drawer-panel" role="dialog" aria-modal="true" aria-label="Mobile menu">
+      <nav class="drawer-menu">
+        
+          <a class="drawer-link" href="/accounts">旗下账号</a>
+        
+          <a class="drawer-link" href="/members">成员</a>
+        
+          <a class="drawer-link" href="/about">关于</a>
+        
+          <a class="drawer-link" href="/join-us">加入</a>
+        
+          <a class="drawer-link" href="/business">商业合作</a>
+        
+      </nav>
+      <div class="drawer-footer">
+        <button id="mobile-toggle-theme" class="theme-btn" type="button">Toggle Theme</button>
+      </div>
+    </div>
+  </div>
 </header>
+
 <script>
-    var mobileBtn = function f() {
-        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
-        var mobileMenu = document.getElementById("mobile-menu");
-        if(toggleMenu.classList.contains("active")){
-           toggleMenu.classList.remove("active")
-            mobileMenu.classList.remove("active")
-        }else{
-            toggleMenu.classList.add("active")
-            mobileMenu.classList.add("active")
-        }
+  // ===== Drawer toggle =====
+  (function () {
+    const body = document.body;
+    const btn = document.getElementById('menu-toggle');
+    const drawer = document.getElementById('mobile-drawer');
+    const overlay = document.getElementById('drawer-overlay');
+    const closeBtn = document.getElementById('drawer-close');
+
+    function openDrawer() {
+      drawer.hidden = false;
+      body.classList.add('drawer-open', 'no-scroll');
+      btn.setAttribute('aria-expanded', 'true');
+      // 延迟添加以触发过渡
+      requestAnimationFrame(() => drawer.classList.add('visible'));
     }
+    function closeDrawer() {
+      drawer.classList.remove('visible');
+      body.classList.remove('drawer-open', 'no-scroll');
+      btn.setAttribute('aria-expanded', 'false');
+      // 等过渡结束再隐藏
+      setTimeout(() => { drawer.hidden = true; }, 200);
+    }
+
+    btn && btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      expanded ? closeDrawer() : openDrawer();
+    });
+
+    overlay && overlay.addEventListener('click', closeDrawer);
+    closeBtn && closeBtn.addEventListener('click', closeDrawer);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !drawer.hidden) closeDrawer();
+    });
+
+    // 点击抽屉里的链接后自动关闭
+    drawer && drawer.addEventListener('click', (e) => {
+      const a = e.target.closest('a');
+      if (a) closeDrawer();
+    });
+  })();
+
+  // ===== Theme Switch =====
+  (function () {
+    const checkbox = document.getElementById('switch_default');
+    const mobileToggle = document.getElementById('mobile-toggle-theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function applyTheme(mode) {
+      document.documentElement.setAttribute('data-theme', mode);
+      localStorage.setItem('theme', mode);
+      if (checkbox) checkbox.checked = (mode === 'dark');
+    }
+
+    const saved = localStorage.getItem('theme');
+    applyTheme(saved || (prefersDark.matches ? 'dark' : 'light'));
+
+    prefersDark.addEventListener('change', (e) => {
+      const hasManual = !!localStorage.getItem('theme');
+      if (!hasManual) applyTheme(e.matches ? 'dark' : 'light');
+    });
+
+    checkbox && checkbox.addEventListener('change', () => {
+      applyTheme(checkbox.checked ? 'dark' : 'light');
+    });
+    mobileToggle && mobileToggle.addEventListener('click', () => {
+      const cur = document.documentElement.getAttribute('data-theme') || 'light';
+      applyTheme(cur === 'dark' ? 'light' : 'dark');
+    });
+  })();
 </script>
+
             <div class="main">
                 <div class="container">
     <article class="post-wrap page">
@@ -156,11 +229,13 @@
 
 <div style="color: #A9A9A9; margin-top: 1em; text-align: center;">白鲸字幕组是一个非盈利性质的多语言字幕组<br>我们旨在为身处中国大陆的粉丝们提供<br>优质字幕、精准翻译、光速搬运</div>
 
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>白鲸字幕组，于2019年7月20日构思，仅一周后的7月28日正式创立。在B站官方账号发布的第一条明确标注白鲸字幕组的搬运视频标志着我们的成立。初始由ZL Asica、初初初初音酱、TGThree三名成员组成，早期的视频多由ZL Asica一手包办。那时，我们尚未建立完善的工作流程和团队规范，甚至未有独立的交流和管理群体。</p>
-<p>随着2019年8月的到来，字幕组迎来了首波入组申请，当时的流程相对简化。此时，因Kizuna AI事件的影响，ZL Asica与志同道合的KeiShi共同创建了AIFans-绊爱中文粉丝站，同时开启了日语组，专注翻译AIChannel及相关推特内容。此外，我们还与PCC Studio合作，共同推动视频制作和后期流程的发展。</p>
-<p>2019年末，白鲸字幕组达成了超过20名成员的小目标，同时建立了初步的操作规范和统一流程。为了提升观众体验，我们研发了新的视频字幕样式。2020年1月1日，我们成立了首个独立搬运组账号Dave2D搬运组（原名D2D搬运组），专注于Dave2D的视频内容，强化资源投入以保证其发展。</p>
-<p>2020年初，KillMasterAGS（现ID：雨沫云汐，其他ID: 北丸らみと）牵头成立了白鲸游戏组，作为字幕组的第一个独立类别小组。我们尝试了新的管理模式，并为游戏视频设计了特殊的字幕样式以适应其光影效果。紧接着在3月，白鲸生活组成立，专注于美食和科普内容，由麦片真好喝担任首任组长。生活组建立了详尽的词汇库，以提高翻译的效率和准确性。至此，白鲸字幕组的整体架构已基本成型。</p>
-<p>架构完善后，我们不断迭代升级内部操作规范和相关资料，以助译员高效、清晰地完成任务。同时，我们收到了来自今日头条（西瓜视频）、小红书、微博、快手等多个平台的入驻邀请。经过短期尝试后，我们决定继续专注于BiliBili。不仅如此，字幕组在过去几年中仍实现了全平台粉丝总量超过10万，常驻译员过百人的成就。从2019年至2024年五年间，我们收到了超过600份来自全球各地的入组申请。</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>白鲸字幕组，于 2019 年 7 月 20 日构思，仅一周后的 7 月 28 日正式创立。在 B 站官方账号发布的第一条明确标注白鲸字幕组的搬运视频标志着我们的成立。初始由 ZL Asica、初初初初音酱、TGThree 三名成员组成，早期的视频多由 ZL Asica 一手包办。那时，我们尚未建立完善的工作流程和团队规范，甚至未有独立的交流和管理群体。</p>
+<p>随着 2019 年 8 月的到来，字幕组迎来了首波入组申请，当时的流程相对简化。此时，因 Kizuna AI 事件的影响，ZL Asica 与志同道合的 KeiShi 共同创建了 AIFans-绊爱中文粉丝站，同时开启了日语组，专注翻译 AIChannel 及相关推特内容。此外，我们还与 PCC Studio 合作，共同推动视频制作和后期流程的发展。</p>
+<p>2019 年末，白鲸字幕组达成了超过 20 名成员的小目标，同时建立了初步的操作规范和统一流程。为了提升观众体验，我们研发了新的视频字幕样式。2020 年 1 月 1 日，我们成立了首个独立搬运组账号 Dave2D 搬运组（原名 D2D 搬运组），专注于 Dave2D 的视频内容，强化资源投入以保证其发展。</p>
+<p>2020 年初，KillMasterAGS（现ID：雨沫云汐，其他ID: 北丸らみと）牵头成立了白鲸游戏组，作为字幕组的第一个独立类别小组。我们尝试了新的管理模式，并为游戏视频设计了特殊的字幕样式以适应其光影效果。紧接着在 3 月，白鲸生活组成立，专注于美食和科普内容，由麦片真好喝担任首任组长。生活组建立了详尽的词汇库，以提高翻译的效率和准确性。至此，白鲸字幕组的整体架构已基本成型。</p>
+<p>架构完善后，我们不断迭代升级内部操作规范和相关资料，以助译员高效、清晰地完成任务。同时，我们收到了来自今日头条（西瓜视频）、小红书、微博、快手等多个平台的入驻邀请。经过短期尝试后，我们决定继续专注于 BiliBili。不仅如此，字幕组在过去几年中仍实现了全平台粉丝总量超过10万，常驻译员过百人的成就。从 2019 年至 2024 年五年间，我们收到了超过600份来自全球各地的入组申请。</p>
+<div style="color: #ff6e6eff; font-weight: bold;">白鲸字幕组已于 2024 年 8 月无限期暂停营业，所有邮箱及联系方式均继续保持开放。如有任何问题，欢迎随时联系我们。若有任何商业合作或紧急事宜，请邮件联系组长 <a href="mailto:zl@zla.app">ZL Asica</a>。感谢大家一直以来的支持与关注！</div>
+
 <h2 id="联系我们"><a href="#联系我们" class="headerlink" title="联系我们"></a>联系我们</h2><p>任何综合联系内容请直接发送邮件至<a href="mailto:admin@belugasubs.com" rel="external nofollow noreferrer" target="_blank" title="白鲸字幕组官方邮箱">白鲸字幕组官方邮箱</a>。我们管理人员的邮箱请查看上面的<a href="/members" title="白鲸字幕组官方邮箱">成员页面</a>。商业合作请查看<a href="/business" title="白鲸字幕组官方邮箱">商业合作页面</a></p>
 
         </section>
@@ -170,16 +245,29 @@
 
             </div>
             <footer id="footer" class="footer">
-    <div class="copyright">
-        <p>
-            &copy; 2019-<span id="copyright-current-year"></span> 白鲸字幕组 All Rights Reserved
-            <br>
-            Powered by <a class="copyright" href="https://hexo.io" rel="external nofollow noreferrer" target="_blank" title="使用的框架-Hexo">Hexo</a> 
-& <a class="copyright" href="https://github.com/Siricee/hexo-theme-Chic" rel="external nofollow noreferrer" target="_blank" title="基于的Hexo模板">Chic</a> 
-with modifications
-        </p>
-    </div>
+  <div class="footer-inner container">
+    <p class="footer-text">
+      &copy; 2019-<span id="copyright-current-year"></span> 白鲸字幕组 All Rights Reserved
+    </p>
+    <p class="footer-meta">
+      Powered by 
+      <a href="https://hexo.io" target="_blank" rel="noopener external nofollow noreferrer" title="使用的框架-Hexo">Hexo</a>
+      & 
+      <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank" rel="noopener external nofollow noreferrer" title="基于的 Hexo 模板">
+        Chic
+      </a>
+      with 
+      <a href="https://github.com/BelugaSubs/www.belugasubs.com" target="_blank" rel="noopener external nofollow noreferrer" title="本站源码仓库">
+        custom modifications by us
+    </a>
+    .
+    </p>
+  </div>
 </footer>
+
+<script>
+  document.getElementById('copyright-current-year').textContent = new Date().getFullYear()
+</script>
 
     </div>
 </body>

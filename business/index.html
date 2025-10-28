@@ -49,7 +49,7 @@
     
     <script src="https://d3js.org/d3-dsv.v1.min.js"></script>
     
-    <script src="/js/custom.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/zl-asica/web-cdn/js/zlasica.js"></script>
     
 
 
@@ -75,78 +75,151 @@
             const pagebody = document.getElementsByTagName('body')[0]
             if (isDark) {
                 pagebody.classList.add('dark-theme');
-                // mobile
-                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
             } else {
                 pagebody.classList.remove('dark-theme');
-                // mobile
-                document.getElementById("mobile-toggle-theme").innerText = "· Light"
             }
         })();
     </script>
 
     <div class="wrapper">
-        <header>
-    <nav class="navbar">
-        <div class="container">
-            <div class="navbar-header header-logo"><a href="/">白鲸字幕组官网</a></div>
-            <div class="menu navbar-right">
-                
-                    <a class="menu-item" href="/accounts">旗下账号</a>
-                
-                    <a class="menu-item" href="/members">成员</a>
-                
-                    <a class="menu-item" href="/about">关于</a>
-                
-                    <a class="menu-item" href="/join-us">加入</a>
-                
-                    <a class="menu-item" href="/business">商业合作</a>
-                
-                <input id="switch_default" type="checkbox" class="switch_default">
-                <label for="switch_default" class="toggleBtn"></label>
-            </div>
+        <header class="site-header">
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-left">
+        <div class="navbar-header header-logo">
+          <a href="/">白鲸字幕组官网</a>
         </div>
-    </nav>
+      </div>
 
-    
-    <nav class="navbar-mobile" id="nav-mobile">
-        <div class="container">
-            <div class="navbar-header">
-                <div>
-                    <a href="/">白鲸字幕组官网</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
-                </div>
-                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
-            </div>
-            <div class="menu" id="mobile-menu">
-                
-                    <a class="menu-item" href="/accounts">旗下账号</a>
-                
-                    <a class="menu-item" href="/members">成员</a>
-                
-                    <a class="menu-item" href="/about">关于</a>
-                
-                    <a class="menu-item" href="/join-us">加入</a>
-                
-                    <a class="menu-item" href="/business">商业合作</a>
-                
-            </div>
+      <div class="navbar-right">
+        <!-- 桌面菜单 -->
+        <div class="menu--primary" id="primary-menu" role="navigation" aria-label="Primary">
+          
+          
+            <a class="menu-item " href="/accounts">旗下账号</a>
+          
+            <a class="menu-item " href="/members">成员</a>
+          
+            <a class="menu-item " href="/about">关于</a>
+          
+            <a class="menu-item " href="/join-us">加入</a>
+          
+            <a class="menu-item active" href="/business">商业合作</a>
+          
+          <input id="switch_default" type="checkbox" class="switch_default" aria-label="Toggle theme">
+          <label for="switch_default" class="toggleBtn" aria-hidden="true"></label>
         </div>
-    </nav>
 
+        <!-- 汉堡按钮（移动端可见） -->
+        <button class="menu-toggle" id="menu-toggle"
+                type="button"
+                aria-controls="mobile-drawer"
+                aria-expanded="false"
+                aria-label="Open menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 移动抽屉 -->
+  <div class="mobile-drawer" id="mobile-drawer" hidden>
+    <div class="drawer-overlay" id="drawer-overlay" tabindex="-1" aria-hidden="true"></div>
+    <div class="drawer-panel" role="dialog" aria-modal="true" aria-label="Mobile menu">
+      <nav class="drawer-menu">
+        
+          <a class="drawer-link" href="/accounts">旗下账号</a>
+        
+          <a class="drawer-link" href="/members">成员</a>
+        
+          <a class="drawer-link" href="/about">关于</a>
+        
+          <a class="drawer-link" href="/join-us">加入</a>
+        
+          <a class="drawer-link" href="/business">商业合作</a>
+        
+      </nav>
+      <div class="drawer-footer">
+        <button id="mobile-toggle-theme" class="theme-btn" type="button">Toggle Theme</button>
+      </div>
+    </div>
+  </div>
 </header>
+
 <script>
-    var mobileBtn = function f() {
-        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
-        var mobileMenu = document.getElementById("mobile-menu");
-        if(toggleMenu.classList.contains("active")){
-           toggleMenu.classList.remove("active")
-            mobileMenu.classList.remove("active")
-        }else{
-            toggleMenu.classList.add("active")
-            mobileMenu.classList.add("active")
-        }
+  // ===== Drawer toggle =====
+  (function () {
+    const body = document.body;
+    const btn = document.getElementById('menu-toggle');
+    const drawer = document.getElementById('mobile-drawer');
+    const overlay = document.getElementById('drawer-overlay');
+    const closeBtn = document.getElementById('drawer-close');
+
+    function openDrawer() {
+      drawer.hidden = false;
+      body.classList.add('drawer-open', 'no-scroll');
+      btn.setAttribute('aria-expanded', 'true');
+      // 延迟添加以触发过渡
+      requestAnimationFrame(() => drawer.classList.add('visible'));
     }
+    function closeDrawer() {
+      drawer.classList.remove('visible');
+      body.classList.remove('drawer-open', 'no-scroll');
+      btn.setAttribute('aria-expanded', 'false');
+      // 等过渡结束再隐藏
+      setTimeout(() => { drawer.hidden = true; }, 200);
+    }
+
+    btn && btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      expanded ? closeDrawer() : openDrawer();
+    });
+
+    overlay && overlay.addEventListener('click', closeDrawer);
+    closeBtn && closeBtn.addEventListener('click', closeDrawer);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !drawer.hidden) closeDrawer();
+    });
+
+    // 点击抽屉里的链接后自动关闭
+    drawer && drawer.addEventListener('click', (e) => {
+      const a = e.target.closest('a');
+      if (a) closeDrawer();
+    });
+  })();
+
+  // ===== Theme Switch =====
+  (function () {
+    const checkbox = document.getElementById('switch_default');
+    const mobileToggle = document.getElementById('mobile-toggle-theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function applyTheme(mode) {
+      document.documentElement.setAttribute('data-theme', mode);
+      localStorage.setItem('theme', mode);
+      if (checkbox) checkbox.checked = (mode === 'dark');
+    }
+
+    const saved = localStorage.getItem('theme');
+    applyTheme(saved || (prefersDark.matches ? 'dark' : 'light'));
+
+    prefersDark.addEventListener('change', (e) => {
+      const hasManual = !!localStorage.getItem('theme');
+      if (!hasManual) applyTheme(e.matches ? 'dark' : 'light');
+    });
+
+    checkbox && checkbox.addEventListener('change', () => {
+      applyTheme(checkbox.checked ? 'dark' : 'light');
+    });
+    mobileToggle && mobileToggle.addEventListener('click', () => {
+      const cur = document.documentElement.getAttribute('data-theme') || 'light';
+      applyTheme(cur === 'dark' ? 'light' : 'dark');
+    });
+  })();
 </script>
+
             <div class="main">
                 <div class="container">
     <article class="post-wrap page">
@@ -161,13 +234,15 @@
         <!-- 案例将在这里动态生成 -->
 </div>
 
-<h3 id="我们的参考价格"><a href="#我们的参考价格" class="headerlink" title="我们的参考价格"></a>我们的参考价格</h3><p>为支持字幕组运营，包括基础设施维护及团队激励，白鲸字幕组组长ZL Asica创立了白鲸商翻。我们致力于提供高质量的商业视频和文件翻译服务，欢迎各类商业项目合作。</p>
+<p>为支持字幕组运营，包括基础设施维护及团队激励，白鲸字幕组组长ZL Asica创立了白鲸商翻。我们致力于提供高质量的商业视频和文件翻译服务，欢迎各类商业项目合作。</p>
 <h3 id="我们的译员"><a href="#我们的译员" class="headerlink" title="我们的译员"></a>我们的译员</h3><ul>
-<li>**经验丰富：**所有译员均具备丰富的听译和校对经验（在白鲸字幕组有过任职经验），深入理解YouTube及其他国际平台的内容风格。</li>
-<li>**专业水平：**译员英语水平均达专业8级&#x2F;CATTI二级笔译&#x2F;托福105分&#x2F;雅思7.5或同等级别。</li>
-<li>**高效本土化：**专注于提供符合目标文化和语境的本土化翻译服务。</li>
+<li>经验丰富： 所有译员均具备丰富的听译和校对经验（在白鲸字幕组有过任职经验），深入理解YouTube及其他国际平台的内容风格。</li>
+<li>专业水平： 译员英语水平均达专业8级&#x2F;CATTI二级笔译&#x2F;托福105分&#x2F;雅思7.5或同等级别。</li>
+<li>高效本土化： 专注于提供符合目标文化和语境的本土化翻译服务。</li>
 </ul>
-<h3 id="我们的参考价格-1"><a href="#我们的参考价格-1" class="headerlink" title="我们的参考价格"></a>我们的参考价格</h3><p>仅供参考，具体价格请与我们联系进行细节商讨。<br><img src="https://s2.loli.net/2024/01/27/x5oKvJFsnb9p6YW.jpg" alt="我们的价格" width="500" loading="lazy"></p>
+<h3 id="我们的参考价格"><a href="#我们的参考价格" class="headerlink" title="我们的参考价格"></a>我们的参考价格</h3><p>仅供参考，具体价格请与我们联系进行细节商讨。</p>
+<img src="https://s2.loli.net/2024/01/27/x5oKvJFsnb9p6YW.jpg" alt="我们的价格" width="500" loading="lazy">
+
 <h3 id="与我们联系"><a href="#与我们联系" class="headerlink" title="与我们联系"></a>与我们联系</h3><p>对于任何合作咨询，请通过 <a href="mailto:bd@belugasubs.com" rel="external nofollow noreferrer" title="联系邮箱" target="_blank">bd@belugasubs.com</a> 联系我们。我们将根据您的具体需求提供个性化报价。请在邮件中详细描述您的项目需求，并提供便捷的联系方式（如QQ、微信等）。我们承诺在三个工作日内回复所有咨询，并期待与您的合作！</p>
 
         </section>
@@ -179,16 +254,29 @@
 
             </div>
             <footer id="footer" class="footer">
-    <div class="copyright">
-        <p>
-            &copy; 2019-<span id="copyright-current-year"></span> 白鲸字幕组 All Rights Reserved
-            <br>
-            Powered by <a class="copyright" href="https://hexo.io" rel="external nofollow noreferrer" target="_blank" title="使用的框架-Hexo">Hexo</a> 
-& <a class="copyright" href="https://github.com/Siricee/hexo-theme-Chic" rel="external nofollow noreferrer" target="_blank" title="基于的Hexo模板">Chic</a> 
-with modifications
-        </p>
-    </div>
+  <div class="footer-inner container">
+    <p class="footer-text">
+      &copy; 2019-<span id="copyright-current-year"></span> 白鲸字幕组 All Rights Reserved
+    </p>
+    <p class="footer-meta">
+      Powered by 
+      <a href="https://hexo.io" target="_blank" rel="noopener external nofollow noreferrer" title="使用的框架-Hexo">Hexo</a>
+      & 
+      <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank" rel="noopener external nofollow noreferrer" title="基于的 Hexo 模板">
+        Chic
+      </a>
+      with 
+      <a href="https://github.com/BelugaSubs/www.belugasubs.com" target="_blank" rel="noopener external nofollow noreferrer" title="本站源码仓库">
+        custom modifications by us
+    </a>
+    .
+    </p>
+  </div>
 </footer>
+
+<script>
+  document.getElementById('copyright-current-year').textContent = new Date().getFullYear()
+</script>
 
     </div>
 </body>
