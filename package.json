@@ -3,12 +3,11 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "build": "hexo generate",
+    "build": "hexo clean && hexo generate && rm -rf public/posts public/archives",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
     "server": "hexo server",
-    "build-ci": "hexo clean && hexo generate",
-    "dev": "hexo clean && hexo generate && hexo server --open",
+    "dev": "pnpm run build && hexo server --open",
     "prettier-check": "prettier --check .",
     "prettier-write": "prettier --write .",
     "postinstall": "husky || true"
