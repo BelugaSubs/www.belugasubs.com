@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>404 - 迷路啦 🐾</title>
+
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f9f9f9" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1f1f1f" />
+    <meta name="error-code" content="404" />
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+    <!-- For <noscript> -->
+    <meta http-equiv="refresh" content="10;url=/" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zl-asica/web-cdn/css/style.css" />
+  </head>
+  <body>
+    <!-- Skip Link for Screen Readers -->
+    <a class="skip-link" href="#main" data-i18n="skip">跳到主内容</a>
+
+    <main id="main" role="main" aria-labelledby="page-title">
+      <h1 id="page-title" data-i18n="title">404 - 迷路啦 🐾</h1>
+      <p id="desc" data-i18n="desc">唔… 页面跑去喝奶茶了？再看看首页吧 🍵</p>
+
+      <!-- Timer Countdown (also for screen readers) -->
+      <p aria-live="polite" aria-atomic="true">
+        <span id="timer" class="timer" role="status" aria-label="10 秒后将自动跳转到首页">10</span>
+        <span data-i18n="countdownTail">秒后将自动跳转到首页。</span>
+      </p>
+
+      <nav class="button-group" aria-label="可用操作" data-i18n-attr="aria-label:actionsLabel">
+        <a href="/" id="redirect-link" class="btn-home" data-i18n="goHome">返回首页</a>
+        <button type="button" id="back-button" class="btn-back" aria-describedby="desc" data-i18n="goBack">
+          返回上一页
+        </button>
+      </nav>
+
+      <!-- For <noscript> -->
+      <noscript>
+        <p>您的浏览器未启用 JavaScript，页面将于 10 秒后自动跳转；您也可以 <a href="/">立即返回首页</a>。</p>
+      </noscript>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/gh/zl-asica/web-cdn/js/i18n.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/gh/zl-asica/web-cdn/js/script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/gh/zl-asica/web-cdn/js/zlasica.js" defer></script>
+  </body>
+</html>
