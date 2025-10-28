@@ -22,7 +22,7 @@
       })();
     else if (wk)
       var t = setInterval(function () {
-        if (/^(loaded|complete)$/.test(d.readyState)) clearInterval(t), run();
+        if (/^(loaded|complete)$/.test(d.readyState)) (clearInterval(t), run());
       }, 0);
   };
 })();
